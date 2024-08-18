@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="navbar bg-base-100 mt-3 md:mt-5 mb-6 md:mb-16 justify-between">
       {/* Navbar Start */}
-      <div className="navbar-start w-auto md:w-2/4">
+      <div className="navbar-start md:hidden md:w-2/4">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden p-0">
             <svg
@@ -35,24 +35,26 @@ const Navbar = () => {
       </div>
 
       {/* Navbar Center */}
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center flex-grow justify-center hidden lg:flex">
         <ul className="menu-horizontal gap-10 text-[#706F6F]">
           {navLinks}
         </ul>
       </div>
 
-      {/* User Profile */}
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src={userDefaultPic} />
-        </div>
-      </div>
 
       {/* Navbar End */}
       <div className="navbar-end w-auto">
-        <a className="btn btn-sm px-10 h-10  bg-[#403F3F] text-white rounded-none">
+
+        {/* User Profile */}
+        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
+            <img
+              alt="Tailwind CSS Navbar component"
+              src={userDefaultPic} />
+          </div>
+        </div>
+
+        <a className="btn btn-sm px-10 h-10 ml-10 bg-[#403F3F] text-white rounded-none">
           <Link>
             <button>Login</button>
           </Link>
