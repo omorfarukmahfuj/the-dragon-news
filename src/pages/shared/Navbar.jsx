@@ -8,9 +8,9 @@ const Navbar = () => {
     <li><NavLink to='/'>Career</NavLink></li>
   </>
   return (
-    <nav className="navbar bg-base-100 mt-3 md:mt-5 mb-6 md:mb-16 justify-between">
+    <nav className="relative navbar">
       {/* Navbar Start */}
-      <div className="navbar-start md:hidden md:w-2/4">
+      <div className="navbar-start md:hidden">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden p-0">
             <svg
@@ -35,7 +35,7 @@ const Navbar = () => {
       </div>
 
       {/* Navbar Center */}
-      <div className="navbar-center flex-grow justify-center hidden lg:flex">
+      <div className="w-full hidden md:flex justify-center">
         <ul className="menu-horizontal gap-10 text-[#706F6F]">
           {navLinks}
         </ul>
@@ -43,8 +43,7 @@ const Navbar = () => {
 
 
       {/* Navbar End */}
-      <div className="navbar-end w-auto">
-
+      <div className="absolute end-0">
         {/* User Profile */}
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
           <div className="w-10 rounded-full">
@@ -54,11 +53,9 @@ const Navbar = () => {
           </div>
         </div>
 
-        <a className="btn btn-sm px-10 h-10 ml-10 bg-[#403F3F] text-white rounded-none">
-          <Link>
-            <button>Login</button>
-          </Link>
-        </a>
+        <Link to="/login" className="btn btn-sm px-10 h-10 ml-10 bg-[#403F3F] hover:bg-black border-none text-white rounded-none">
+          <button>Login</button>
+        </Link>
       </div>
     </nav>
   );
