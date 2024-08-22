@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../shared/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import { useLocation } from 'react-router-dom';
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleLogin = e => {
     e.preventDefault();
     // const email = e.target.email.value;
@@ -12,6 +17,16 @@ const Login = () => {
     const email = form.get('email');
     const password = form.get('password');
     console.log(email, password);
+    signIn(email, password)
+      .then(result => {
+        console.log(result.user);
+        // Navigate after Login
+        navigate(location.state ? location.state : '/')
+      })
+      .catch(error => {
+        console.error(error);
+
+      })
 
   }
   return (
